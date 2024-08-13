@@ -31,6 +31,7 @@ X = vectorizer.fit_transform(patterns)
 model = SVC(kernel='linear', probability=True)
 model.fit(X, tags)
 
+
 # Example usage: Predict the tag for a new input
 while True:
     new_input = input("Enter String : ")
