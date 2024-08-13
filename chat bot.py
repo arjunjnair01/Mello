@@ -1,6 +1,6 @@
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.naive_bayes import MultinomialNB
+from sklearn.svm import SVC
 import random
 
 # Load the JSON data
@@ -27,8 +27,8 @@ for intent in data['intents']:
 vectorizer = TfidfVectorizer(preprocessor=preprocess_text)
 X = vectorizer.fit_transform(patterns)
 
-# Train the Naive Bayes model on all the data
-model = MultinomialNB()
+# Train the SVM model on all the data
+model = SVC(kernel='linear', probability=True)
 model.fit(X, tags)
 
 # Example usage: Predict the tag for a new input
